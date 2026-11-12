@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Услуги — Деркач В.В.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #F4F8F8; color: #1E2A2D; padding-top: 120px; display: flex; flex-direction: column; min-height: 100vh; }
+    .breadcrumb-row { max-width: 1100px; margin: 0 auto 18px; padding: 0 20px; width: 100%; font-size: 14px; color: #56686D; }
+    .breadcrumb-row a { color: #16697A; text-decoration: none; }
+    .breadcrumb-row a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; width: 100%; flex: 1 0 auto; }
+    h1 { font: 800 clamp(32px, 4.2vw, 48px)/1.1 'Manrope', 'Inter', sans-serif; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .page-lead { font-size: 18px; color: #56686D; max-width: 60ch; margin-bottom: 28px; line-height: 1.5; }
+    .btn { display: inline-block; text-decoration: none; font-weight: 700; text-align: center; cursor: pointer; transition: background-color .2s, box-shadow .2s; }
+    .btn-primary { background-color: #FF4111; color: #fff; border: 2px solid #FF4111; }
+    .btn-primary:hover { background-color: #F2380A; border-color: #F2380A; box-shadow: 0 6px 18px rgba(255, 65, 17, .35); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+
+    .service-meta {
+      font-size: 14px;
+      color: #16697A;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .service-desc {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 760px) { body { padding-top: 150px; } .container, .breadcrumb-row { padding: 0 16px; } }
+  </style>
+  <link rel="stylesheet" href="ruler.css">
+</head>
+<body>
+  <div id="headerbar"></div>
+
+  <nav class="breadcrumb-row" aria-label="Путь по сайту">
+    <a href="index.html">Главная</a> / <span>Услуги</span>
+  </nav>
+
+  <main class="container">
+    <h1>Услуги</h1>
+    <p class="page-lead">Форматы приёма врача-аллерголога-иммунолога. Запись — онлайн за несколько шагов.</p>
+    <div class="ruler-wrap"><div class="horizon-line" aria-hidden="true"></div></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div>
+          <h3>Консультативный приём взрослые</h3>
+          <div class="service-meta">Длительность: 45 мин. | Формат: очно / онлайн</div>
+          <p class="service-desc">Сбор анамнеза, оценка симптомов, разработка плана обследования и предварительных рекомендаций.</p>
+        </div>
+        <a href="pages/booking.html" class="btn btn-primary" data-appointment-open style="padding: 12px 24px; border-radius: 16px; font-size: 16px;">Записаться</a>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <h3>Консультативный приём дети</h3>
+          <div class="service-meta">Длительность: 45 мин. | Формат: очно / онлайн</div>
+          <p class="service-desc">Консультация родителей с ребенком, разбор кожных реакций, частых простуд и сезонных проявлений.</p>
+        </div>
+        <a href="pages/booking.html" class="btn btn-primary" data-appointment-open style="padding: 12px 24px; border-radius: 16px; font-size: 16px;">Записаться</a>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <h3>Консультативный приём по АСИТ</h3>
+          <div class="service-meta">Длительность: 30 мин. | Формат: очно / онлайн</div>
+          <p class="service-desc">Оценка результатов лабораторных тестов, коррекция терапии и ответов на вопросы пациента.</p>
+        </div>
+        <a href="pages/booking.html" class="btn btn-primary" data-appointment-open style="padding: 12px 24px; border-radius: 16px; font-size: 16px;">Записаться</a>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="footer"></div>
+
+<script>
+  fetch('headerbar.html').then(function (r) { return r.text(); }).then(function (h) { document.getElementById('headerbar').innerHTML = h; });
+  fetch('footer.html').then(function (r) { return r.text(); }).then(function (d) { document.getElementById('footer').innerHTML = d; });
+</script>
+  <script src="a11y.js" defer></script>
+  <script src="appointment.js" defer></script>
+  <script src="chat.js" defer></script>
+</body>
+</html>

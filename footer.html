@@ -1,0 +1,235 @@
+<!-- footer.html -->
+<style>
+  #footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer {
+    width: 100%;
+    background-color: #0E3440;
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: auto; /* Прижимает футер к низу в flex-контейнере */
+  }
+
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .footer-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-heading {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: #ffffff;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 4px 0;
+  }
+
+  .footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav li {
+    margin-bottom: 6px;
+  }
+
+  .footer-nav a,
+  .footer-link {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: block;
+    line-height: 1.4;
+  }
+
+  .footer-nav a:hover,
+  .footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  .footer-contact-block {
+    margin-bottom: 16px;
+  }
+
+  .footer-socials {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  .social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .social-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .social-item:hover .social-icon {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .social-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .footer-docs {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .footer-docs a {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+  }
+
+  .footer-docs a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 900px) {
+    .footer-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 20px;
+    }
+
+    .footer-socials {
+      justify-content: flex-start;
+      grid-column: span 2;
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-socials {
+      grid-column: span 1;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3 class="footer-title">ИП Деркач Владислава Витальевна</h3>
+      <p class="footer-text">Все права защищены</p>
+      <p class="footer-text">ИП Деркач Владислава Витальевна</p>
+      <p class="footer-text">Персональный сайт врача-эксперта</p>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Меню</h4>
+      <ul class="footer-nav">
+        <li><a href="pages/our-services.html">Услуги</a></li>
+        <li><a href="index.html#about">Обо мне</a></li>
+        <li><a href="pages/educational-projects.html">Образовательные проекты</a></li>
+        <li><a href="index.html#loyalty">Программа лояльности</a></li>
+        <li><a href="pages/contacts.html">Контакты</a></li>
+        <li><a href="https://prof125.ru" target="_blank" rel="noopener">Поликлиника «Профессионал»</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-contact-block">
+        <h4 class="footer-heading">Контакты</h4>
+        <a href="tel:+74232920290" class="footer-link">+7 (423) 292-02-90</a>
+        <a href="mailto:vladislavad@mail.ru" class="footer-link">vladislavad@mail.ru</a>
+      </div>
+      <div class="footer-contact-block">
+        <h4 class="footer-heading">Адрес</h4>
+        <p class="footer-text">г. Владивосток, ул. Лазо, д. 8 · +7 (423) 292-02-90</p>
+        <p class="footer-text">г. Уссурийск, ул. Тимирязева, д. 8 · +7 (4234) 300-470</p>        
+      </div>
+    </div>
+
+    <div class="footer-col footer-socials">
+      <a href="https://vk.ru/vladislavad68" target="_blank" class="social-item">
+        <div class="social-icon">
+          <img src="images/vk.png" alt="ВКонтакте">
+        </div>
+        <span class="social-label">ВКонтакте</span>
+      </a>
+
+      <a href="https://ok.ru/profile/575818544104?utm_campaign=android_share&utm_content=profile" target="_blank" class="social-item">
+        <div class="social-icon">
+          <img src="images/ok.png" alt="Одноклассники">
+        </div>
+        <span class="social-label">Одноклассники</span>
+      </a>
+
+      <a href="https://t.me/doctor125" target="_blank" class="social-item">
+        <div class="social-icon">
+          <img src="images/telegram.png" alt="Telegram">
+        </div>
+        <span class="social-label">Telegram</span>
+      </a>
+    </div>
+
+    <div class="footer-docs">
+      <a href="pages/executor-info.html">Сведения об исполнителе и лицензия</a>
+      <a href="pages/privacy-policy.html">Политика конфиденциальности</a>
+      <a href="pages/personal-data-regulation.html">Положение о персональных данных</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сведения об исполнителе — Деркач В.В.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #F4F8F8; color: #111111; padding-top: 120px; display: flex; flex-direction: column; min-height: 100vh; }
+    .breadcrumb-row { font-size: 14px; color: #666; max-width: 900px; margin: 0 auto 32px; padding: 0 20px; width: 100%; }
+    .breadcrumb-row a { color: #16697A; text-decoration: none; }
+    .breadcrumb-row a:hover { text-decoration: underline; }
+    .container { max-width: 900px; margin: 0 auto 60px; padding: 0 20px; width: 100%; }
+    .card { background: #ffffff; border-radius: 32px; padding: 48px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+    h1 { font-size: 34px; font-weight: 800; color: #1a1a1a; margin-bottom: 16px; line-height: 1.2; }
+    h2 { font-size: 21px; font-weight: 700; color: #16697A; margin: 32px 0 12px; line-height: 1.3; }
+    h3 { font-size: 17px; font-weight: 700; color: #1a1a1a; margin: 20px 0 8px; }
+    p, li { font-size: 16px; line-height: 1.6; color: #444; }
+    p { margin-bottom: 12px; }
+    ul { margin: 0 0 12px 22px; }
+    li { margin-bottom: 6px; }
+    .lead { font-size: 18px; margin-bottom: 8px; }
+    dl.facts { display: grid; grid-template-columns: minmax(150px, 240px) 1fr; gap: 10px 20px; margin: 8px 0 16px; }
+    dl.facts dt { font-size: 14px; color: #777; }
+    dl.facts dd { font-size: 16px; color: #1a1a1a; font-weight: 500; }
+    .org { padding: 18px 20px; border-radius: 20px; background: #F4F8F8; margin-bottom: 16px; }
+    .org h3 { margin-top: 0; }
+    .note { margin-top: 16px; padding: 14px 18px; border-radius: 16px; background: #F4F8F8; font-size: 14px; color: #666; }
+    .btn { display: inline-block; background: #16697A; color: #fff; padding: 12px 24px; border-radius: 14px; font-weight: 700; text-decoration: none; margin: 8px 12px 0 0; font-size: 15px; }
+    .btn:hover { background: #0E3440; }
+    .btn.secondary { background: #E6F1F2; color: #16697A; }
+    .btn.secondary:hover { background: #d0ebfc; }
+    a { color: #16697A; }
+    .btn { color: #fff; } .btn.secondary { color: #16697A; }
+    @media (max-width: 600px) { .card { padding: 28px 20px; } h1 { font-size: 26px; } dl.facts { grid-template-columns: 1fr; gap: 2px; } dl.facts dd { margin-bottom: 10px; } }
+  </style>
+</head>
+<body>
+  <div id="headerbar"></div>
+  <div id="appointment-modal-container"></div>
+
+  <div class="breadcrumb-row">
+    <a href="index.html">Главная</a> / <span>Сведения об исполнителе</span>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h1>Сведения об исполнителе</h1>
+      <p class="lead">Информация об исполнителе медицинских услуг, лицензии и органах, в которые можно обратиться с жалобой.</p>
+
+      <h2>Об исполнителе</h2>
+      <dl class="facts">
+        <dt>Полное наименование</dt><dd>Индивидуальный предприниматель Деркач Владислава Витальевна</dd>
+        <dt>ОГРНИП</dt><dd>325253600010281</dd>
+        <dt>ИНН</dt><dd>253900949348</dd>
+        <dt>Адреса оказания услуг</dt><dd>г. Владивосток, ул. Лазо, д. 8<br>г. Уссурийск, ул. Тимирязева, д. 8</dd>
+        <dt>Телефоны</dt><dd><a href="tel:+74232920290">+7 (423) 292-02-90</a> (Владивосток)<br><a href="tel:+74234300470">+7 (4234) 300-470</a> (Уссурийск)</dd>
+        <dt>Электронная почта</dt><dd><a href="mailto:vladislavad@mail.ru">vladislavad@mail.ru</a></dd>
+        <dt>Режим работы</dt><dd>Будет указан дополнительно</dd>
+      </dl>
+
+      <h2>Лицензия на медицинскую деятельность</h2>
+      <dl class="facts">
+        <dt>Номер лицензии</dt><dd>Л041-01023-25/04236941</dd>
+        <dt>Дата предоставления</dt><dd>26.01.2026</dd>
+        <dt>Лицензирующий орган</dt><dd>Министерство здравоохранения Приморского края</dd>
+        <dt>Статус</dt><dd>Действует (по состоянию на 28.01.2026)</dd>
+        <dt>Вид деятельности</dt><dd>Медицинская деятельность</dd>
+        <dt>Выполняемые работы и услуги</dt><dd>Первичная специализированная медико-санитарная помощь в амбулаторных условиях по аллергологии и иммунологии (приказ 866н) по адресам: г. Владивосток, ул. Лазо, д. 8 и г. Уссурийск, ул. Тимирязева, зд. 8 (кабинеты)</dd>
+      </dl>
+      <a class="btn" href="documents/license-extract.pdf" target="_blank" rel="noopener">Открыть выписку из реестра лицензий (PDF)</a>
+
+      <h2>Куда обратиться с жалобой</h2>
+      <p>По вопросам организации помощи, качества и безопасности медицинских услуг и защиты прав потребителя вы можете обратиться в профильное ведомство.</p>
+      <div class="org">
+        <h3>Министерство здравоохранения Приморского края</h3>
+        <ul>
+          <li>Адрес: 690007, г. Владивосток, ул. 1-я Морская, д. 2.</li>
+          <li>Телефон приёмной: +7 (423) 241-35-14; +7 (423) 241-05-36.</li>
+          <li>Электронная почта: <a href="mailto:dza@primorsky.ru">dza@primorsky.ru</a>.</li>
+        </ul>
+        <a href="https://primorsky.ru/authorities/executive-agencies/departments/health/kontakty-dzpk/" target="_blank" rel="noopener">Официальная страница контактов министерства</a>
+      </div>
+      <div class="org">
+        <h3>Территориальный орган Росздравнадзора по Приморскому краю</h3>
+        <p>Контроль качества и безопасности медицинской деятельности, вопросы соблюдения прав пациентов.</p>
+        <ul>
+          <li>Адрес: 690091, г. Владивосток, ул. Мордовцева, д. 3, 9-й этаж, офис 907.</li>
+          <li>Телефон приёмной: +7 (423) 222-42-46.</li>
+          <li>Электронная почта: <a href="mailto:info@reg25.roszdravnadzor.gov.ru">info@reg25.roszdravnadzor.gov.ru</a>.</li>
+        </ul>
+        <a href="https://25reg.roszdravnadzor.gov.ru/about/contacts" target="_blank" rel="noopener">Официальная страница Росздравнадзора по Приморскому краю</a>
+      </div>
+      <div class="org">
+        <h3>Управление Роспотребнадзора по Приморскому краю</h3>
+        <p>Вопросы защиты прав потребителя и санитарного благополучия.</p>
+        <ul>
+          <li>Адрес: 690087, г. Владивосток, ул. Сельская, д. 3.</li>
+          <li>Телефон приёмной: +7 (423) 244-27-40.</li>
+          <li>Электронная почта канцелярии: <a href="mailto:pkrpn@pkrpn.ru">pkrpn@pkrpn.ru</a>.</li>
+        </ul>
+        <a href="https://25.rospotrebnadzor.ru/ob-upravlenii/kontakty/" target="_blank" rel="noopener">Официальная страница Роспотребнадзора по Приморскому краю</a>
+      </div>
+      <p class="note">Для электронного обращения используйте раздел обращений на официальном сайте ведомства и указанный там порядок подачи. Справочная электронная почта не во всех случаях заменяет официальный канал обращения.</p>
+
+      <h2>Документы</h2>
+      <a class="btn secondary" href="pages/privacy-policy.html">Политика конфиденциальности</a>
+      <a class="btn secondary" href="pages/personal-data-regulation.html">Положение о персональных данных</a>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+<script>
+  Promise.all([
+    fetch('headerbar.html').then(res => res.text()),
+    fetch('appointment-modal.html').then(res => res.text())
+  ]).then(([header, modal]) => {
+    document.getElementById('headerbar').innerHTML = header;
+    document.getElementById('appointment-modal-container').innerHTML = modal;
+  });
+  fetch('footer.html').then(res => res.text()).then(d => document.getElementById('footer').innerHTML = d);
+
+  // окно записи: открытие и закрытие
+  document.addEventListener('click', function (e) {
+    var popup = document.getElementById('appointmentPopup');
+    if (!popup) return;
+    if (e.target.closest('[data-appointment-open]')) {
+      e.preventDefault();
+      popup.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    } else if (e.target.closest('[data-appointment-close]')) {
+      popup.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+  <script src="a11y.js" defer></script>
+  <script src="appointment.js" defer></script>
+  <script src="chat.js" defer></script>
+</body>
+</html>

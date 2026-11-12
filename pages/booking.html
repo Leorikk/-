@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запись на приём — Деркач В.В.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="appointment.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F4F8F8;
+      color: #1E2A2D;
+      padding-top: 120px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .breadcrumb-row { max-width: 1100px; margin: 0 auto 18px; padding: 0 20px; width: 100%; font-size: 14px; color: #56686D; }
+    .breadcrumb-row a { color: #16697A; text-decoration: none; }
+    .breadcrumb-row a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; width: 100%; flex: 1 0 auto; }
+    h1 { font: 800 clamp(32px, 4.2vw, 48px)/1.1 'Manrope', 'Inter', sans-serif; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .page-lead { font-size: 18px; color: #56686D; max-width: 60ch; margin-bottom: 28px; line-height: 1.5; }
+    @media (max-width: 760px) { body { padding-top: 150px; } .container, .breadcrumb-row { padding: 0 16px; } }
+  </style>
+  <link rel="stylesheet" href="ruler.css">
+</head>
+<body>
+  <div id="headerbar"></div>
+
+  <nav class="breadcrumb-row" aria-label="Путь по сайту">
+    <a href="index.html">Главная</a> / <span>Запись на приём</span>
+  </nav>
+
+  <main class="container ap-page">
+    <h1>Запись на приём</h1>
+    <p class="page-lead">Шесть коротких шагов. Вернуться и поправить можно на любом из них.</p>
+    <div class="ruler-wrap"><div class="horizon-line" aria-hidden="true"></div></div>
+    <div id="apptRoot"></div>
+  </main>
+
+  <div id="footer"></div>
+
+<script>
+  fetch('headerbar.html').then(function (r) { return r.text(); }).then(function (h) { document.getElementById('headerbar').innerHTML = h; });
+  fetch('footer.html').then(function (r) { return r.text(); }).then(function (d) { document.getElementById('footer').innerHTML = d; });
+</script>
+  <script src="a11y.js" defer></script>
+  <script src="appointment.js" defer></script>
+  <script src="chat.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<div id="navigationTestModal" class="test-modal-overlay">
+  <div class="test-modal-card">
+    <button type="button" class="test-modal-close" data-test-close>&times;</button>
+    <h2>Навигационный тест</h2>
+    <p class="test-subtitle">Ответьте на 4 вопроса, чтобы мы точно подобрали нужную информацию.</p>
+    
+    <!-- Шаг 1 -->
+    <div id="testStep1" class="test-step">
+      <h3>1. Для кого нужна информация?</h3>
+      <div class="test-options">
+        <button type="button" class="test-option-btn" onclick="selectTestOption(1, 'child')">Ребёнок</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(1, 'adult')">Взрослый</button>
+      </div>
+    </div>
+
+    <!-- Шаг 2 -->
+    <div id="testStep2" class="test-step" style="display: none;">
+      <h3>2. Что вы хотите сделать?</h3>
+      <div class="test-options">
+        <button type="button" class="test-option-btn" onclick="selectTestOption(2, 'appointment')">Записаться</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(2, 'services')">Посмотреть услуги</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(2, 'how_it_works')">Понять, как проходит консультация</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(2, 'materials')">Изучить материалы</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(2, 'preparation')">Подготовиться к приёму</button>
+      </div>
+    </div>
+
+    <!-- Шаг 3 -->
+    <div id="testStep3" class="test-step" style="display: none;">
+      <h3>3. Вы уже были на консультации?</h3>
+      <div class="test-options">
+        <button type="button" class="test-option-btn" onclick="selectTestOption(3, 'yes')">Да</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(3, 'no')">Нет</button>
+      </div>
+    </div>
+
+    <!-- Шаг 4 -->
+    <div id="testStep4" class="test-step" style="display: none;">
+      <h3>4. Что показать дальше?</h3>
+      <div class="test-options">
+        <button type="button" class="test-option-btn" onclick="selectTestOption(4, 'service')">Релевантную услугу</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(4, 'material')">Материал</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(4, 'appointment')">Запись</button>
+        <button type="button" class="test-option-btn" onclick="selectTestOption(4, 'doctor_pol')">Доктора Поля</button>
+      </div>
+    </div>
+
+    <!-- Результат -->
+    <div id="testResult" class="test-step" style="display: none;">
+      <h3>Результат подбора</h3>
+      <p id="testResultText" style="margin: 15px 0 25px; color: #555; line-height: 1.5;"></p>
+      <div id="testResultAction" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button type="button" class="btn btn-outline" onclick="resetTest()">Пройти заново</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .test-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .test-modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .test-modal-card {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 40px;
+    width: 100%;
+    max-width: 540px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    text-align: center;
+  }
+  .test-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+  }
+  .test-modal-card h2 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+  }
+  .test-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+  }
+  .test-step h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+  }
+  .test-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .test-option-btn {
+    background: #F4F8F8;
+    border: 2px solid rgba(22, 105, 122, 0.2);
+    padding: 14px 20px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #16697A;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    width: 100%;
+  }
+  .test-option-btn:hover {
+    background: #16697A;
+    color: #ffffff;
+    border-color: #16697A;
+  }
+</style>

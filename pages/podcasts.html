@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подкасты — Деркач В.В.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F4F8F8;
+      color: #111111;
+      padding-top: 120px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .breadcrumb-row { font-size: 14px; color: #666; max-width: 1000px; margin: 0 auto 32px; padding: 0 20px; width: 100%; }
+    .breadcrumb-row a { color: #16697A; text-decoration: none; }
+    .breadcrumb-row a:hover { text-decoration: underline; }
+    .container { max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; width: 100%; }
+    .card { background: #ffffff; border-radius: 32px; padding: 48px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+    h1 { font-size: 38px; font-weight: 800; color: #1a1a1a; margin-bottom: 16px; }
+    h2 { font-size: 22px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px; }
+    p { font-size: 16px; line-height: 1.6; color: #444; margin-bottom: 12px; }
+    .lead { font-size: 18px; max-width: 720px; margin-bottom: 32px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .item { border: 1.5px solid #E3EAF0; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+    .tag { align-self: flex-start; font-size: 12px; font-weight: 700; color: #16697A; background: #E6F1F2; border-radius: 999px; padding: 4px 12px; }
+    .item p { margin: 0; font-size: 15px; }
+    .meta { font-size: 13px; color: #777; }
+    .player { margin-top: 8px; height: 44px; border-radius: 12px; background: #f1f4f6; display: flex; align-items: center; padding: 0 14px; color: #777; font-size: 13px; }
+    @media (max-width: 600px) { .card { padding: 28px 20px; } h1 { font-size: 30px; } }
+  </style>
+  <link rel="stylesheet" href="ruler.css">
+</head>
+<body>
+  <div id="headerbar"></div>
+  <div id="appointment-modal-container"></div>
+
+  <div class="breadcrumb-row">
+    <a href="index.html">Главная</a> / <span>Подкасты</span>
+  </div>
+
+  <div class="container">
+    <div class="ruler-wrap"><div class="horizon-line" aria-hidden="true"></div></div>
+    <div class="card">
+      <h1>Подкасты</h1>
+      <p class="lead">Врач простыми словами рассказывает о здоровье: аллергии, иммунитете, детском здоровье и профилактике. Слушайте в дороге или дома.</p>
+      <div class="grid">
+        <article class="item"><span class="tag">Выпуск 1</span><h2>Аллергия: с чего начать</h2><p>Как распознать аллергию и когда пора к врачу.</p><span class="meta">Скоро</span><div class="player">Аудио появится здесь</div></article>
+        <article class="item"><span class="tag">Выпуск 2</span><h2>Часто болеющий ребёнок</h2><p>Что считать нормой, а что поводом для обследования.</p><span class="meta">Скоро</span><div class="player">Аудио появится здесь</div></article>
+        <article class="item"><span class="tag">Выпуск 3</span><h2>Иммунитет без мифов</h2><p>Какие обследования нужны, а какие бесполезны.</p><span class="meta">Скоро</span><div class="player">Аудио появится здесь</div></article>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+<script>
+  Promise.all([
+    fetch('headerbar.html').then(res => res.text()),
+    fetch('appointment-modal.html').then(res => res.text())
+  ]).then(([header, modal]) => {
+    document.getElementById('headerbar').innerHTML = header;
+    document.getElementById('appointment-modal-container').innerHTML = modal;
+  });
+  fetch('footer.html').then(res => res.text()).then(d => document.getElementById('footer').innerHTML = d);
+
+  // окно записи: открытие и закрытие
+  document.addEventListener('click', function (e) {
+    var popup = document.getElementById('appointmentPopup');
+    if (!popup) return;
+    if (e.target.closest('[data-appointment-open]')) {
+      e.preventDefault();
+      popup.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    } else if (e.target.closest('[data-appointment-close]')) {
+      popup.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+  <script src="a11y.js" defer></script>
+  <script src="appointment.js" defer></script>
+  <script src="chat.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Деркач В.В.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F4F8F8;
+      color: #111111;
+      padding-top: 120px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+       .breadcrumb-row {
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #666;
+       max-width: 900px; margin: 0 auto 60px; padding: 0 20px; width: 100%;
+    }
+
+    .breadcrumb-row a {
+      color: #16697A;
+      text-decoration: none;
+    }
+
+    .breadcrumb-row a:hover {
+      text-decoration: underline;
+    }
+    .container { max-width: 900px; margin: 0 auto 60px; padding: 0 20px; width: 100%; }
+    .card {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    h1 { font-size: 38px; font-weight: 800; color: #1a1a1a; margin-bottom: 24px; }
+    h2 { font-size: 22px; font-weight: 700; color: #16697A; margin: 24px 0 12px; }
+    p { font-size: 16px; line-height: 1.6; color: #444; margin-bottom: 12px; }
+    .btn { display: inline-block; background: #16697A; color: #fff; padding: 14px 28px; border-radius: 16px; font-weight: 700; text-decoration: none; margin-top: 16px; }
+    .btn:hover { background: #0E3440; }
+  </style>
+  <link rel="stylesheet" href="ruler.css">
+</head>
+<body>
+  <div id="headerbar"></div>
+  <div id="appointment-modal-container"></div>
+
+      <div class="breadcrumb-row">
+      <a href="index.html">Главная</a> / <span>Контакты</span>
+    </div>
+
+  <div class="container">
+    <div class="ruler-wrap"><div class="horizon-line" aria-hidden="true"></div></div>
+    <div class="card">
+      <h1>Контакты и клиника</h1>
+      <p>Приемы ведутся очно во Владивостоке в поликлинике «Профессионал», а также в онлайн-формате для пациентов из других регионов.</p>
+      
+      <h2>Медицинский центр «Профессионал»</h2>
+      <p><strong>Адрес:</strong> г. Владивосток, ул. Лазо, д. 6</p>
+      <p>г. Уссурийск, ул. Тимирязева, д. 8</p>
+      <p><strong>Телефон:</strong> +7 (423) 292-02-90</p>
+      <p>+7 (4234) 300-470</p>
+      
+      <a href="https://prof125.ru" target="_blank" class="btn">Перейти на сайт поликлиники «Профессионал»</a>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+<script>
+  Promise.all([
+    fetch('headerbar.html').then(res => res.text()),
+    fetch('appointment-modal.html').then(res => res.text())
+  ]).then(([header, modal]) => {
+    document.getElementById('headerbar').innerHTML = header;
+    document.getElementById('appointment-modal-container').innerHTML = modal;
+  });
+  fetch('footer.html').then(res => res.text()).then(d => document.getElementById('footer').innerHTML = d);
+</script>
+  <script src="a11y.js" defer></script>
+  <script src="appointment.js" defer></script>
+  <script src="chat.js" defer></script>
+</body>
+</html>

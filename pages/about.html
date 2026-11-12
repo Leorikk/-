@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О враче — Деркач Владислава Витальевна</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F4F8F8;
+      color: #111111;
+      padding-top: 120px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      width: 100%;
+    }
+    .about-card {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #16697A;
+      margin: 32px 0 16px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .doc-btn-wrap {
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      background: #16697A;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #0E3440; }
+  </style>
+</head>
+<body>
+  <div id="headerbar"></div>
+  <div id="appointment-modal-container"></div>
+
+  <div class="container">
+    <div class="about-card">
+      <h1>Обо мне</h1>
+      <p><strong>Владислава Витальевна Деркач</strong> — врач аллерголог-иммунолог, кандидат медицинских наук, врач высшей категории с опытом работы более 30 лет.</p>
+      
+      <h2>Образование и квалификация</h2>
+      <p>Окончила ведущий медицинский вуз страны, регулярно проходит курсы повышения квалификации по аллергологии, иммунологии и клинической лабораторной диагностике. Является автором более 200 научных публикаций и обладателем 2 патентов на изобретения в РФ.</p>
+      
+      <h2>Преподавательская и экспертная деятельность</h2>
+      <p>Доцент ДВФУ, руководитель направления клинической лабораторной диагностики. Федеральный эксперт качества медицинской помощи, главный врач медицинского центра «Профессионал».</p>
+
+      <div class="doc-btn-wrap">
+        <a href="pages/about.html#certificatesPopup" class="btn" data-documents-open>Посмотреть документы и сертификаты</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="certificatesPopup"></div>
+  <div id="footer"></div>
+
+<script>
+  Promise.all([
+    fetch('headerbar.html').then(res => res.text()),
+    fetch('appointment-modal.html').then(res => res.text()),
+    fetch('certificates-modal.html').then(res => res.text())
+  ]).then(([header, modal, cert]) => {
+    document.getElementById('headerbar').innerHTML = header;
+    document.getElementById('appointment-modal-container').innerHTML = modal;
+    document.getElementById('certificatesPopup').outerHTML = cert;
+  });
+  fetch('footer.html').then(res => res.text()).then(d => document.getElementById('footer').innerHTML = d);
+</script>
+  <script src="a11y.js" defer></script>
+  <script src="appointment.js" defer></script>
+  <script src="chat.js" defer></script>
+</body>
+</html>

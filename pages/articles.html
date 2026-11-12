@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статьи — Деркач В.В.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --vd-bg-ivory: #F4F8F8;    
+      --vd-blue: #16697A;        
+      --vd-aqua: #A8EAD5;        
+      --vd-green: #D6F2BA;       
+      --vd-lilac: #BDAEFF;       
+      --vd-text-dark: #1E2A2D;   
+      --vd-text-muted: #56686D;  
+      --vd-font: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      font-family: var(--vd-font);
+      background-color: var(--vd-bg-ivory);
+      color: #222222;
+      scroll-behavior: smooth;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #16697A;
+      color: #16697A;
+      padding: 16px 34px;
+      border-radius: 20px;
+      font-size: 18px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(22, 105, 122, 0.08);
+    }
+
+    .btn-primary {
+      background-color: #16697A;
+      color: #ffffff;
+      border: 2px solid #16697A;
+      padding: 16px 34px;
+      border-radius: 20px;
+      font-size: 18px;
+    }
+
+    .btn-primary:hover {
+      background-color: #0E3440;
+      border-color: #0E3440;
+      box-shadow: 0 6px 18px rgba(22, 105, 122, 0.3);
+    }
+
+    .section-container {
+      width: 100%;
+      max-width: 1165px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-size: 38px;
+      font-weight: 800;
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: -0.6px;
+    }
+
+    .breadcrumb-row {
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .breadcrumb-row a {
+      color: #16697A;
+      text-decoration: none;
+    }
+
+    .breadcrumb-row a:hover {
+      text-decoration: underline;
+    }
+
+    /* Materials Filter Bar & Grid */
+    .materials-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+
+    .material-cat-chip {
+      background: #ffffff;
+      border: 1px solid rgba(22, 105, 122, 0.3);
+      color: #16697A;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .material-cat-chip:hover {
+      background: rgba(22, 105, 122, 0.08);
+      border-color: #16697A;
+    }
+
+    .material-cat-chip.selected {
+      background: #16697A;
+      color: #ffffff;
+      border-color: #16697A;
+      box-shadow: 0 4px 12px rgba(22, 105, 122, 0.25);
+    }
+
+    .material-cat-chip .chip-cross {
+      display: none;
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .material-cat-chip.selected .chip-cross {
+      display: inline-block;
+    }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .material-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(22, 105, 122, 0.1);
+    }
+
+    .material-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .material-category {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #16697A;
+      background: #FFF3EB;
+      padding: 4px 12px;
+      border-radius: 12px;
+    }
+
+    .material-audience {
+      font-size: 12px;
+      font-weight: 600;
+      color: #555555;
+      background: #f0f4f8;
+      padding: 4px 12px;
+      border-radius: 12px;
+    }
+
+    .material-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .material-desc {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .material-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+      padding-top: 16px;
+      margin-top: auto;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .material-date {
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+  <link rel="stylesheet" href="ruler.css">
+</head>
+<body>
+
+  <div id="headerbar"></div>
+  <div id="appointment-modal-container"></div>
+
+  <main class="section-container" style="padding-top: 130px;">
+    <div class="breadcrumb-row">
+      <a href="index.html">Главная</a> / <a href="pages/educational-projects.html">Образовательные проекты</a> / <span>Статьи</span>
+    </div>
+
+    <h1 class="section-title" style="text-align: left; margin-bottom: 16px;">Статьи</h1>
+    <p style="color: #555; font-size: 16px; margin-bottom: 36px; line-height: 1.5; max-width: 800px;">Статьи врача об аллергологии, иммунологии и здоровье детей и взрослых.</p>
+
+    <div class="ruler-wrap" style="padding:0;margin-bottom:24px"><div class="horizon-line" aria-hidden="true"></div></div>
+
+    <div class="materials-grid">
+
+      <!-- Material Card 2 -->
+      <div class="material-card" data-category="статьи">
+        <div>
+          <div class="material-meta-row">
+            <span class="material-category">Статья</span>
+            <span class="material-audience">для взрослых</span>
+          </div>
+          <h3 class="material-title">Поллиноз или простуда: как отличить сезонную аллергию от ОРВИ</h3>
+          <p class="material-desc">Разбираем ключевые симптомы, сроки проявления и почему привычные противопростудные средства не помогают при цветении.</p>
+        </div>
+        <div class="material-footer">
+          <span class="material-date">Обновлено: 28 июл 2026</span>
+          <a href="pages/materials/pollinosis-vs-cold.html" class="btn btn-outline" style="padding: 10px 20px; font-size: 14px; border-radius: 14px;">Читать</a>
+        </div>
+      </div>
+
+
+      <!-- Material Card 6 -->
+      <div class="material-card" data-category="статьи, памятки">
+        <div>
+          <div class="material-meta-row">
+            <span class="material-category">Статья</span>
+            <span class="material-audience">для родителей</span>
+          </div>
+          <h3 class="material-title">Атопический дерматит у детей: правила ухода за кожей</h3>
+          <p class="material-desc">Как правильно использовать эмоленты, купать ребенка и снимать зуд в периоды сезонных обострений.</p>
+        </div>
+        <div class="material-footer">
+          <span class="material-date">Обновлено: 05 авг 2026</span>
+          <a href="pages/materials/atopic-dermatitis.html" class="btn btn-outline" style="padding: 10px 20px; font-size: 14px; border-radius: 14px;">Читать</a>
+        </div>
+      </div>
+
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+<script>
+  Promise.all([
+    fetch('headerbar.html').then(res => res.text()),
+    fetch('appointment-modal.html').then(res => res.text()),
+    fetch('footer.html').then(res => res.text())
+  ]).then(([headerHtml, modalHtml, footerHtml]) => {
+    document.getElementById('headerbar').innerHTML = headerHtml;
+    document.getElementById('appointment-modal-container').innerHTML = modalHtml;
+    document.getElementById('footer').innerHTML = footerHtml;
+
+    initAppointmentModal();
+    initMaterialFilters();
+  });
+
+  function initMaterialFilters() {
+    const chips = document.querySelectorAll('.material-cat-chip');
+    const cards = document.querySelectorAll('.material-card');
+
+    if (!chips.length || !cards.length) return;
+
+    let selectedCategories = new Set();
+
+    function filterCards() {
+      cards.forEach((card) => {
+        const cardCats = (card.getAttribute('data-category') || '').toLowerCase().split(',').map(s => s.trim());
+        if (selectedCategories.size === 0) {
+          card.style.display = '';
+        } else {
+          const matches = Array.from(selectedCategories).some(selCat => cardCats.includes(selCat));
+          card.style.display = matches ? '' : 'none';
+        }
+      });
+    }
+
+    filterCards();
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const cat = chip.getAttribute('data-category').toLowerCase().trim();
+        if (selectedCategories.has(cat)) {
+          selectedCategories.delete(cat);
+          chip.classList.remove('selected');
+        } else {
+          selectedCategories.add(cat);
+          chip.classList.add('selected');
+        }
+        filterCards();
+      });
+    });
+  }
+
+  function initAppointmentModal() {
+    const appointmentPopup = document.getElementById("appointmentPopup");
+    const appointmentForm = document.getElementById("appointmentForm");
+    if (!appointmentPopup) return;
+
+    document.addEventListener("click", function (event) {
+      const openBtn = event.target.closest('[data-appointment-open]');
+      if (openBtn) {
+        event.preventDefault();
+        appointmentPopup.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        return;
+      }
+      const closeBtn = event.target.closest('[data-appointment-close]');
+      if (closeBtn) {
+        appointmentPopup.classList.remove("is-open");
+        document.body.style.overflow = "";
+      }
+    });
+
+    if (appointmentForm) {
+      appointmentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Спасибо! Ваша заявка успешно отправлена.");
+        appointmentForm.reset();
+        appointmentPopup.classList.remove("is-open");
+        document.body.style.overflow = "";
+      });
+    }
+  }
+
+</script>
+  <script src="a11y.js" defer></script>
+  <script src="appointment.js" defer></script>
+  <script src="chat.js" defer></script>
+</body>
+</html>
