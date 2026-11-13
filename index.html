@@ -29,49 +29,12 @@
       --vd-font: 'Inter', sans-serif;
     }
 
-    /* Образование, опыт и наука */
-    .path { position:relative; z-index:1; background:#16697A; color:#fff; border-radius:28px; padding:44px 48px 52px; font-family:'Inter',sans-serif; }
-    .path .doc-badge { border:4px solid #fff; border-radius:50%; box-sizing:border-box; }
-    .path-title { margin:0 0 40px; font-size:32px; line-height:1.15; text-align:center; color:#fff; }
-    .path-line { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,1fr); position:relative; }
-    .path-line::before { content:""; position:absolute; left:0; right:0; top:8px; height:4px; border-radius:2px; background:rgba(255,255,255,.35); }
-    .path-item { position:relative; padding:0 10px; text-align:center; }
-    .path-item b { display:block; font-size:30px; font-weight:800; line-height:1; }
-    .path-item::before { content:""; display:block; width:20px; height:20px; border-radius:50%; margin:0 auto 16px; position:relative; box-shadow:0 0 0 5px #16697A; }
-    .path-item.edu::before { background:#fff; }
-    .path-item.job::before { background:#A8EAD5; }
-    .path-item.edu b { color:#fff; }
-    .path-item.job b { color:#A8EAD5; }
-    .path-item p { margin:0; font-size:14px; line-height:1.4; color:rgba(255,255,255,.92); }
-    .path-legend { display:flex; justify-content:center; gap:24px; margin-top:24px; font-size:13px; }
-    .path-legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:baseline; }
-    .path-legend .edu::before { background:#fff; }
-    .path-legend .job::before { background:#A8EAD5; }
-    .path-stats { display:grid; grid-template-columns:repeat(3,1fr); margin-top:40px; padding:28px 0; border-top:1px solid rgba(255,255,255,.35); border-bottom:1px solid rgba(255,255,255,.35); }
-    .path-stats div { text-align:center; padding:0 12px; }
-    .path-stats div + div { border-left:1px solid rgba(255,255,255,.35); }
-    .path-stats strong { display:block; font-size:56px; font-weight:800; line-height:1.1; }
-    .path-stats strong.sm { font-size:34px; line-height:1.6; }
-    .path-stats span { display:block; margin-top:6px; font-size:15px; color:rgba(255,255,255,.9); }
-    .path-assoc { margin-top:28px; padding-right:150px; }
-    .path-assoc h3 { margin:0 0 10px; font-size:18px; color:#fff; }
-    .path-assoc ul { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px 28px; }
-    .path-assoc li { font-size:14px; color:rgba(255,255,255,.92); }
-    .path-assoc li::before { content:"— "; color:#A8EAD5; }
-    @media (max-width:850px) {
-      .path { padding:32px 20px 90px; }
-      .path-title { font-size:24px; margin-bottom:28px; text-align:left; }
-      .path-line { grid-template-columns:1fr; gap:22px; padding-left:34px; }
-      .path-line::before { left:9px; right:auto; top:8px; bottom:8px; width:4px; height:auto; }
-      .path-item { text-align:left; padding:0; }
-      .path-item::before { position:absolute; left:-34px; top:2px; margin:0; }
-      .path-item b { font-size:24px; margin-bottom:4px; }
-      .path-legend { justify-content:flex-start; }
-      .path-stats { grid-template-columns:1fr; gap:20px; }
-      .path-stats div + div { border-left:0; }
-      .path-stats div { text-align:left; padding:0; }
-      .path-assoc { padding-right:0; }
-    }
+    /* Факты в блоке «Обо мне» */
+    .about-facts { list-style:none; margin:0 0 24px; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(min(150px,100%),1fr)); gap:10px; }
+    .about-facts li { background:#E6F1F2; border-radius:18px; padding:14px 16px; display:flex; flex-direction:column; gap:4px; }
+    .about-facts b { font:700 15px/1.3 'Manrope','Inter',sans-serif; color:#16697A; }
+    .about-facts span { font-size:13px; line-height:1.4; color:#56686D; }
+    .about-cta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
 
     /* Стили для секции отзывов */
     .vd-section {
@@ -1777,7 +1740,7 @@
       </div>
 
       <div class="hero-stats-bar">
-        <a href="#experience" class="stat-item stat-link">
+        <a href="#about" class="stat-item stat-link">
           <div class="stat-value">30+ лет</div> 
           <div class="stat-label">врачебный стаж</div>
         </a>
@@ -1814,6 +1777,13 @@
 
         <div class="about-card-part1 about-text">
           <h2 class="about-title">Обо мне</h2>
+          <ul class="about-facts">
+            <li><b>Кандидат медицинских наук</b><span>с 1998 года</span></li>
+            <li><b>Специализация</b><span>клиническая иммунология и аллергология, с 1999 года</span></li>
+            <li><b>Эксперт качества медицинской помощи</b><span>в сфере ОМС, с 2014 года</span></li>
+            <li><b>Доцент ДВФУ</b><span>Школа медицины и наук о жизни, с 2020 года</span></li>
+            <li><b>Стаж 30+ лет</b><span>врачебной практики</span></li>
+          </ul>
           <p>Я — врач аллерголог-иммунолог, педиатр, кандидат медицинских наук и эксперт качества оказания медицинской помощи в сфере ОМС.</p>
           <p>Помогаю детям и взрослым разобраться в причинах аллергических заболеваний, подобрать необходимое лечение и научиться контролировать болезнь. Консультирую пациентов с аллергическим ринитом, бронхиальной астмой, атопическим дерматитом, пищевой аллергией и другими проявлениями аллергии. При наличии показаний подбираю и провожу аллерген-специфическую иммунотерапию — АСИТ.</p>
           <p>Как клинический иммунолог работаю с детьми и взрослыми, у которых часто повторяются или затягиваются инфекции. Помогаю оценить работу иммунной системы, определить необходимость дополнительного обследования и разобраться в его результатах.</p>
@@ -1823,44 +1793,11 @@
           <p>Медицина постоянно развивается, поэтому врач продолжает учиться на протяжении всей профессиональной жизни. Я регулярно повышаю квалификацию, изучаю современные исследования и клинические рекомендации. Своими знаниями и опытом делюсь с молодыми специалистами, пациентами и родителями, которые хотят лучше понимать вопросы здоровья, профилактики и лечения заболеваний.</p>
           <div class="about-cta">
             <a href="#" class="btn btn-primary" data-appointment-open>Записаться</a>
+            <a href="#" class="btn btn-outline" data-documents-open>Посмотреть документы</a>
           </div>
         </div>
       </div>
 
-    </div>
-
-    <div id="experience" class="path">
-      <h2 class="path-title">Образование и научная деятельность</h2>
-
-      <ol class="path-line">
-        <li class="path-item edu"><b>1992</b><p>ВГМИ, педиатрия</p></li>
-        <li class="path-item edu"><b>1998</b><p>Кандидат медицинских наук</p></li>
-        <li class="path-item edu"><b>1999</b><p>Специализация: клиническая иммунология и аллергология</p></li>
-        <li class="path-item job"><b>2011</b><p>Поликлиника «Профессионал», аллерголог-иммунолог</p></li>
-        <li class="path-item job"><b>2014</b><p>Эксперт качества медицинской помощи (ОМС)</p></li>
-        <li class="path-item job"><b>2020</b><p>Доцент ДВФУ, Школа медицины и наук о жизни</p></li>
-      </ol>
-
-      <div class="path-legend"><span class="edu">Образование</span><span class="job">Работа</span></div>
-
-      <div class="path-stats">
-        <div><strong>200+</strong><span>научных публикаций</span></div>
-        <div><strong>2</strong><span>патента</span></div>
-        <div><strong class="sm">Конгрессы</strong><span>доклады на конференциях</span></div>
-      </div>
-
-      <div class="path-assoc">
-        <h3>Медицинские ассоциации</h3>
-        <ul>
-          <li>Ассоциация детских аллергологов и иммунологов России</li>
-          <li>Союз педиатров России</li>
-          <li>Российская ассоциация аллергологов и клинических иммунологов</li>
-        </ul>
-      </div>
-
-      <a href="#" class="doc-badge" data-documents-open title="Посмотреть подтверждающие документы">
-        <img src="images/docsbtn.png" alt="Посмотреть подтверждающие документы" class="doc-badge-img">
-      </a>
     </div>
 
   </main>
